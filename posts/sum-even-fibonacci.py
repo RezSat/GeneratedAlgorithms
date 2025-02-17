@@ -2,11 +2,11 @@ def sum_even_fibonacci(limit):
     """
     Calculate the sum of even Fibonacci numbers up to a given limit.
     """
-    a, b = 1, 1
+    a, b = 1, 2
     total = 0
-    while b <= limit:
-        if b % 2 == 0:
-            total += b
+    while a <= limit:
+        if a % 2 == 0:
+            total += a
         a, b = b, a + b
     return total
 
