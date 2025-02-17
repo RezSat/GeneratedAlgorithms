@@ -1,19 +1,19 @@
 ---
 title: Weighted Prime Average
-subtitle: Calculates the weighted average of prime numbers within a given range.
-tags: [prime numbers, average, weighted average, algorithm]
+subtitle: Calculates the weighted average of prime numbers less than a given number.
+tags: [prime, average, algorithm]
 verified: false
 ---
 
 ## Description
-This algorithm calculates the weighted average of prime numbers within a specified range. The weight of each prime number is the prime number itself.
+This algorithm calculates the weighted average of prime numbers less than a given number. The weight of each prime number is the prime number itself.
 
 ## Algorithm Explanation
-1.  The algorithm first identifies all prime numbers within the given range.
-2.  If no prime numbers are found, it returns 0.
-3.  It calculates the total weight by summing all the prime numbers.
-4.  It calculates the weighted sum by summing the square of each prime number.
-5.  Finally, it returns the weighted average by dividing the weighted sum by the total weight.
+1.  Generate a list of prime numbers less than the given number.
+2.  If the list of prime numbers is empty, return 0.
+3.  Calculate the total weight, which is the sum of all prime numbers.
+4.  Calculate the weighted sum, which is the sum of each prime number multiplied by its weight (which is the prime number itself).
+5.  Calculate the weighted average by dividing the weighted sum by the total weight.
 
 ## The Full Code
 ```python
@@ -28,12 +28,11 @@ def is_prime(n):
             return False
     return True
 
-def weighted_prime_average(start, end):
+def weighted_prime_average(limit):
     """
-    Calculate the weighted average of prime numbers within a given range.
-    The weight is the prime number itself.
+    Calculate the weighted average of prime numbers less than a given number.
     """
-    primes = [num for num in range(start, end + 1) if is_prime(num)]
+    primes = [number for number in range(2, limit) if is_prime(number)]
     if not primes:
         return 0
     total_weight = sum(primes)
@@ -41,16 +40,15 @@ def weighted_prime_average(start, end):
     return weighted_sum / total_weight
 
 if __name__ == "__main__":
-    start_range = 1
-    end_range = 20
-    result = weighted_prime_average(start_range, end_range)
-    print(f"The weighted average of prime numbers between {start_range} and {end_range} is: {result}")
+    limit = 20
+    result = weighted_prime_average(limit)
+    print(f"The weighted average of prime numbers less than {limit} is: {result}")
 ```
 
 ## Expected Output
 ```
-The weighted average of prime numbers between 1 and 20 is: 13.337662337662337
+The weighted average of prime numbers less than 20 is: 9.6
 ```
 
 ## Conclusion
-The Weighted Prime Average algorithm efficiently calculates the weighted average of prime numbers within a given range.
+The Weighted Prime Average algorithm efficiently calculates the weighted average of prime numbers less than a given number.

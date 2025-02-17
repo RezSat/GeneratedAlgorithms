@@ -2,7 +2,7 @@
 title: Largest Prime Factor
 subtitle: Finds the largest prime factor of a given number.
 tags: [prime factor, prime, factor, algorithm]
-verified: false
+verified: true
 ---
 
 ## Description

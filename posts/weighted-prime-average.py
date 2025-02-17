@@ -9,12 +9,11 @@ def is_prime(n):
             return False
     return True
 
-def weighted_prime_average(start, end):
+def weighted_prime_average(limit):
     """
-    Calculate the weighted average of prime numbers within a given range.
-    The weight is the prime number itself.
+    Calculate the weighted average of prime numbers less than a given number.
     """
-    primes = [num for num in range(start, end + 1) if is_prime(num)]
+    primes = [number for number in range(2, limit) if is_prime(number)]
     if not primes:
         return 0
     total_weight = sum(primes)
@@ -22,7 +21,6 @@ def weighted_prime_average(start, end):
     return weighted_sum / total_weight
 
 if __name__ == "__main__":
-    start_range = 1
-    end_range = 20
-    result = weighted_prime_average(start_range, end_range)
-    print(f"The weighted average of prime numbers between {start_range} and {end_range} is: {result}")
+    limit = 20
+    result = weighted_prime_average(limit)
+    print(f"The weighted average of prime numbers less than {limit} is: {result}")
