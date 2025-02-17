@@ -1,69 +1,70 @@
 ---
 title: Chromatic Brainwaves
-subtitle: Generative Art Algorithm Inspired by Brainwave Patterns
-tags: [generative art, algorithm, random, color]
-verified: false
+subtitle: Generates a sequence of "brainwaves" represented by a list of colors with a bias towards changes.
+tags: [random, colors, sequence, brainwaves, algorithm]
+verified: true
 ---
 
-## Chromatic Brainwaves
+## Title: Chromatic Brainwaves
 
-### Description
-This algorithm generates abstract art pieces resembling brainwave patterns using random color combinations and sinusoidal functions.
+## Description:
+This algorithm generates a sequence of "brainwaves" represented by a list of colors. The colors are chosen randomly, but with a bias towards changes.
 
-### Algorithm Explanation
-The algorithm works by creating a series of overlapping sinusoidal waves with random frequencies, amplitudes, and phases. Each wave is assigned a random color. The waves are then combined to create a final image. The algorithm simulates the complex and seemingly random patterns observed in brainwave activity, translating them into visually appealing chromatic compositions.
+## Algorithm Explanation:
+The algorithm takes the length of the sequence and the number of possible colors as input. It starts by choosing a random color for the first brainwave. For each subsequent brainwave, it has a higher probability of choosing a different color than the previous one.
 
-### The Full Code
+## The Full Code:
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
 import random
 
-def generate_chromatic_brainwaves(width=512, height=512, num_waves=50):
+def chromatic_brainwaves(length, num_colors):
     """
-    Generates an image of chromatic brainwaves.
+    Generates a sequence of "brainwaves" represented by a list of colors.
+    The colors are chosen randomly, but with a bias towards changes.
 
     Args:
-        width (int): Width of the image.
-        height (int): Height of the image.
-        num_waves (int): Number of sinusoidal waves to generate.
+        length: The length of the brainwave sequence.
+        num_colors: The number of possible colors.
 
     Returns:
-        numpy.ndarray: A numpy array representing the image.
+        A list of integers representing the brainwave sequence.
     """
-    image = np.zeros((height, width, 3))
-    x = np.linspace(0, 1, width)
+    if num_colors <= 0 or length <= 0:
+        return []
 
-    for _ in range(num_waves):
-        frequency = random.uniform(1, 5)
-        amplitude = random.uniform(0.1, 0.5)
-        phase = random.uniform(0, 2 * np.pi)
-        color = (random.random(), random.random(), random.random())
+    brainwaves = []
+    previous_color = random.randint(0, num_colors - 1)
+    brainwaves.append(previous_color)
 
-        wave = amplitude * np.sin(2 * np.pi * frequency * x + phase)
-        wave_scaled = ((wave + amplitude) / (2 * amplitude)) * height
+    for _ in range(1, length):
+        # Bias towards changing colors
+        if random.random() < 0.8:  # 80% chance of changing
+            available_colors = [c for c in range(num_colors) if c != previous_color]
+            if available_colors:
+                next_color = random.choice(available_colors)
+            else:
+                next_color = previous_color #if only one color, stay the same
+        else:
+            next_color = previous_color  # 20% chance of staying the same
 
-        for i in range(width):
-            y = int(wave_scaled[i])
-            if 0 <= y < height:
-                image[y, i] = color
+        brainwaves.append(next_color)
+        previous_color = next_color
 
-    return image
+    return brainwaves
 
-if __name__ == "__main__":
-    image = generate_chromatic_brainwaves()
 
-    plt.imshow(image)
-    plt.axis('off')
-    plt.title('Chromatic Brainwaves')
-    plt.show()
+if __name__ == '__main__':
+    length = 100
+    num_colors = 5
+    brainwaves = chromatic_brainwaves(length, num_colors)
+    print(f"Generated brainwaves: {brainwaves}")
 ```
 
-### How to Use
-No special instructions are needed. Just run the python code.
+## How to Use:
+The code can be run directly from the command line. No special instructions are needed.
 
-### Expected Output
-The algorithm will generate an image displaying a series of colorful, overlapping waves. The image will resemble abstract brainwave patterns with smooth color transitions.
+## Expected Output:
+The expected output is a list of integers representing the brainwave sequence. The numbers will be between 0 and num_colors - 1.  You should see that the numbers tend to change frequently.
 
-### Conclusion
-The Chromatic Brainwaves algorithm provides a unique way to visualize randomness and complexity, drawing inspiration from the natural patterns of brainwave activity. The resulting images are abstract and visually engaging, showcasing the beauty of algorithmic art.
+## Conclusion:
+The Chromatic Brainwaves algorithm provides a way to generate a sequence of colors with a bias towards changes. This can be useful in situations where you want to simulate a dynamic system.

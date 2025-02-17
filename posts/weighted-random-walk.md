@@ -1,67 +1,103 @@
 ---
 title: Weighted Random Walk
-subtitle: A random walk algorithm where the probability of choosing a number is weighted by its absolute value.
-tags: [random, walk, weighted, probability, algorithm]
+subtitle: Simulates a random walk with weighted probabilities for each direction.
+tags: [random walk, weighted, simulation, visualization, algorithm]
 verified: false
 ---
 
 ## Title: Weighted Random Walk
 
 ## Description:
-This algorithm performs a random walk on a list of numbers, where the probability of choosing a number is weighted by its absolute value.
+This algorithm simulates a random walk in two dimensions, where the probability of moving in each direction (North, South, East, West) can be weighted.
 
 ## Algorithm Explanation:
-The algorithm takes a list of numbers and a number of steps as input. In each step, it calculates weights based on the absolute values of the numbers. It then chooses a number based on these weights and adds it to the total.
+The algorithm takes the length of the walk and a dictionary of weights as input. The weights dictionary specifies the probability of moving in each direction. The algorithm then iterates through the specified number of steps, choosing a direction at random based on the weights and updating the current position accordingly.
 
 ## The Full Code:
 ```python
 import random
 
-def weighted_random_walk(numbers, steps):
+def weighted_random_walk(length, weights):
     """
-    Performs a weighted random walk on a list of numbers.
+    Simulates a random walk with weighted probabilities for each direction.
 
     Args:
-        numbers: A list of numbers to walk on.
-        steps: The number of steps to take.
+        length: The number of steps in the random walk.
+        weights: A dictionary mapping directions ('N', 'S', 'E', 'W') to probabilities.
+               Probabilities must sum to 1.
 
     Returns:
-        The final total after the random walk.
+        A list of tuples representing the coordinates (x, y) of the walk at each step.
     """
-    if not numbers:
-        return 0
+    directions = list(weights.keys())
+    probabilities = list(weights.values())
 
-    total = 0
-    for _ in range(steps):
-        # Calculate weights based on the numbers
-        weights = [abs(num) for num in numbers]  # Use absolute values for weights
-        
-        # Handle the case where all weights are zero
-        if sum(weights) == 0:
-            index = random.randint(0, len(numbers) - 1)
-        else:
-            # Normalize weights to create a probability distribution
-            probabilities = [weight / sum(weights) for weight in weights]
-            
-            # Choose an index based on the probabilities
-            index = random.choices(range(len(numbers)), weights=probabilities, k=1)[0]
-        
-        total += numbers[index]
+    if sum(probabilities) != 1:
+        raise ValueError("Probabilities must sum to 1.")
 
-    return total
+    x, y = 0, 0
+    path = [(x, y)]
+
+    for _ in range(length):
+        direction = random.choices(directions, probabilities)[0]
+
+        if direction == 'N':
+            y += 1
+        elif direction == 'S':
+            y -= 1
+        elif direction == 'E':
+            x += 1
+        elif direction == 'W':
+            x -= 1
+
+        path.append((x, y))
+
+    return path
+
 
 if __name__ == '__main__':
-    numbers = [1, 2, 3, -4, 5]
-    steps = 1000
-    result = weighted_random_walk(numbers, steps)
-    print(f"The final total after {steps} steps is: {result}")
+    # Example usage
+    weights = {
+        'N': 0.25,
+        'S': 0.25,
+        'E': 0.25,
+        'W': 0.25
+    }
+
+    length = 100
+
+    path = weighted_random_walk(length, weights)
+
+    print("Random walk path:")
+    for point in path:
+        print(point)
+
+
+    # Visualization (requires matplotlib)
+    try:
+        import matplotlib.pyplot as plt
+
+        x_coords, y_coords = zip(*path)
+
+        plt.plot(x_coords, y_coords)
+        plt.xlabel("X Coordinate")
+        plt.ylabel("Y Coordinate")
+        plt.title("Weighted Random Walk")
+        plt.grid(True)
+        plt.show()
+
+    except ImportError:
+        print("Matplotlib is not installed. Please install it to visualize the random walk.")
 ```
 
 ## How to Use:
-The code can be run directly from the command line.  No special instructions are needed.
+The code can be run directly from the command line. To visualize the random walk, you need to have the `matplotlib` library installed. If you don't have it installed, you can install it using pip:
+```bash
+pip install matplotlib
+```
 
 ## Expected Output:
-The expected output is the final total after the random walk. The value will vary due to the random nature of the algorithm, but should be centered around a value determined by the input list.
+The code will first print the coordinates of each step in the random walk. If `matplotlib` is installed, it will also display a plot of the random walk.
 
 ## Conclusion:
-The Weighted Random Walk algorithm provides a way to perform a random walk where the probability of choosing a number is weighted by its absolute value. This can be useful in situations where you want to bias the random walk towards certain numbers.
+The Weighted Random Walk algorithm provides a way to simulate a random walk with weighted probabilities for each direction. The visualization helps to understand the behavior of the walk.
