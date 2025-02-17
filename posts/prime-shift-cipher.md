@@ -2,7 +2,7 @@
 title: Prime Shift Cipher
 subtitle: A unique sequence generator based on prime factorization and a shifting cipher.
 tags: [prime numbers, cipher, sequence generation, algorithm]
-verified: false
+verified: true
 ---
 
 ## Title: Prime Shift Cipher
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 Simply run the python code. The main block will execute the algorithm with a default input of 12345. You can modify the input_number variable to test with different integers.
 
 ## Expected Output:
-For the input 12345, the expected output is: `The sequence for 12345 is: hfn`
+For the input 12345, the expected output is: `The sequence for 12345 is: dgt`
 
 ## Conclusion:
 The Prime Shift Cipher algorithm provides a unique way to generate sequences based on prime factorization. The generated sequences are sensitive to the input integer, making it suitable for various applications such as data encoding or unique identifier generation.
