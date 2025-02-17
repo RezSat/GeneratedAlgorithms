@@ -10,7 +10,7 @@ def nth_palindrome(n):
     """
     count = 0
     num = 0
-    while count &lt; n:
+    while count < n:
         num += 1
         if is_palindrome(num):
             count += 1
