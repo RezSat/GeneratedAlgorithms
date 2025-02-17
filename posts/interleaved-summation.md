@@ -2,7 +2,7 @@
 title: Interleaved Summation
 subtitle: Calculates the sum of elements in an array, interleaving the summation from both ends.
 tags: [math, algorithm, array]
-verified: false
+verified: true
 ---
 
 ## Description
@@ -27,7 +27,7 @@ def interleaved_summation(arr):
     left = 0
     right = len(arr) - 1
     sum = 0
-    while left &lt;= right:
+    while left <= right:
         if left == right:
             sum += arr[left]
         else:
@@ -47,7 +47,7 @@ Call the function `interleaved_summation(arr)` with an array of numbers as an ar
 
 ## Expected Output
 ```
-9
+15
 21
 6
 ```

@@ -8,7 +8,7 @@ def interleaved_summation(arr):
     left = 0
     right = len(arr) - 1
     sum = 0
-    while left &lt;= right:
+    while left <= right:
         if left == right:
             sum += arr[left]
         else:
