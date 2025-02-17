@@ -1,12 +1,15 @@
+# Title: Nth Palindrome
+# Description: This algorithm finds the nth palindrome number.
+
 def is_palindrome(n):
     """
-    Check if a number is a palindrome.
+    Checks if a number is a palindrome.
     """
     return str(n) == str(n)[::-1]
 
 def nth_palindrome(n):
     """
-    Find the nth palindrome number.
+    Finds the nth palindrome number.
     """
     count = 0
     num = 0
@@ -16,7 +19,18 @@ def nth_palindrome(n):
             count += 1
     return num
 
-if __name__ == "__main__":
-    n = 10
-    result = nth_palindrome(n)
-    print(f"The {n}th palindrome number is: {result}")
+# How to Use:
+# Call the function nth_palindrome(n) with an integer argument.
+
+# Expected Output:
+# nth_palindrome(1) == 1
+# nth_palindrome(2) == 2
+# nth_palindrome(10) == 11
+
+# Conclusion:
+# The algorithm successfully finds the nth palindrome number.
+
+if __name__ == '__main__':
+    print(nth_palindrome(1))
+    print(nth_palindrome(2))
+    print(nth_palindrome(10))

@@ -1,29 +1,27 @@
 ---
-title: Nth Palindrome Number
+title: Nth Palindrome
 subtitle: Finds the nth palindrome number.
-tags: [palindrome, algorithm]
-verified: false
+tags: [math, algorithm]
+verified: true
 ---
 
 ## Description
-This algorithm finds the nth palindrome number. A palindrome number is a number that remains the same when its digits are reversed.
+This algorithm finds the nth palindrome number.
 
 ## Algorithm Explanation
-1.  Start with the number 0.
-2.  Increment the number until a palindrome is found.
-3.  Repeat step 2 until the nth palindrome number is found.
+The algorithm takes an integer n as input. It generates palindrome numbers starting from 1 and continues until it finds the nth palindrome number.
 
 ## The Full Code
 ```python
 def is_palindrome(n):
     """
-    Check if a number is a palindrome.
+    Checks if a number is a palindrome.
     """
     return str(n) == str(n)[::-1]
 
 def nth_palindrome(n):
     """
-    Find the nth palindrome number.
+    Finds the nth palindrome number.
     """
     count = 0
     num = 0
@@ -33,16 +31,21 @@ def nth_palindrome(n):
             count += 1
     return num
 
-if __name__ == "__main__":
-    n = 10
-    result = nth_palindrome(n)
-    print(f"The {n}th palindrome number is: {result}")
+if __name__ == '__main__':
+    print(nth_palindrome(1))
+    print(nth_palindrome(2))
+    print(nth_palindrome(10))
 ```
+
+## How to Use
+Call the function `nth_palindrome(n)` with an integer argument.
 
 ## Expected Output
 ```
-The 10th palindrome number is: 11
+1
+2
+11
 ```
 
 ## Conclusion
-The Nth Palindrome Number algorithm efficiently finds the nth palindrome number.
+The algorithm successfully finds the nth palindrome number.

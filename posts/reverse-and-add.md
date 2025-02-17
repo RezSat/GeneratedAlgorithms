@@ -2,7 +2,7 @@
 title: Reverse and Add
 subtitle: Reverses a number and adds it to the original.
 tags: [math, algorithm]
-verified: false
+verified: true
 ---
 
 ## Description
