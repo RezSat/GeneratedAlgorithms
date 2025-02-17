@@ -5,7 +5,9 @@ tags: [random walk, grid, weighted, simulation]
 verified: true
 ---
 
-## Small Description
+# Weighted Random Walk on a Grid
+
+##  Description
 
 This algorithm simulates a random walk on a grid where the probability of moving to a neighboring cell is weighted.
 

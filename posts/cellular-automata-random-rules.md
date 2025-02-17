@@ -4,8 +4,9 @@ subtitle: A 1D cellular automaton with randomly generated rules.
 tags: [cellular automata, random, rules, simulation]
 verified: true
 ---
+# Cellular Automata with Random Rules
 
-## Small Description
+##  Description
 
 This algorithm implements a 1D cellular automaton where the rules for cell updates are randomly generated.
 

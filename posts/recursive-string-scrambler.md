@@ -5,7 +5,9 @@ tags: [string, recursion, scramble]
 verified: true
 ---
 
-## Small Description
+# Recursive String Scrambler
+
+## Description
 
 This algorithm recursively scrambles a string by splitting it into two parts, scrambling each part, and then concatenating them back together.
 

@@ -5,7 +5,9 @@ tags: [genetic algorithm, equation, solving, optimization]
 verified: true
 ---
 
-## Small Description
+# Genetic Algorithm for Simple Equation Solving
+
+## Description
 
 This algorithm uses a genetic algorithm to find a solution to a simple equation of the form x + y = target, where x and y are integers.
 

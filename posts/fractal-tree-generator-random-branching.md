@@ -5,7 +5,9 @@ tags: [fractal, tree, recursion, random, graphics]
 verified: true
 ---
 
-## Small Description
+# Fractal Tree Generator with Random Branching Angles
+
+## Description
 
 This algorithm generates a fractal tree structure where the branching angles and lengths are randomly determined at each level of recursion.
 

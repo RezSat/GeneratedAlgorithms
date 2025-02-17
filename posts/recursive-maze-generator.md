@@ -5,7 +5,9 @@ tags: [maze, generator, recursion, backtracking]
 verified: true
 ---
 
-## Small Description
+# Recursive Maze Generator
+
+## Description
 
 This algorithm generates a maze using the recursive backtracking algorithm.
 

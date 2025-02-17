@@ -5,7 +5,9 @@ tags: [simulated annealing, optimization, string, random]
 verified: true
 ---
 
-## Small Description
+# Simulated Annealing for Random String Optimization
+
+## Description
 
 This algorithm uses simulated annealing to find a string that is as close as possible to a randomly generated target string. Closeness is defined by the number of matching characters.
 

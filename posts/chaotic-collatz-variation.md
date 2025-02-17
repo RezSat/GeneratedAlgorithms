@@ -5,7 +5,9 @@ tags: [collatz, random, variation, math]
 verified: true
 ---
 
-## Small Description
+# Chaotic Collatz Variation
+
+## Description
 
 This algorithm is a variation of the Collatz conjecture, where instead of using fixed multipliers and divisors, it randomly selects them within a defined range for each step.
 
