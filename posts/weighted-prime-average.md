@@ -2,7 +2,7 @@
 title: Weighted Prime Average
 subtitle: Calculates the weighted average of prime numbers less than a given number.
 tags: [prime, average, algorithm]
-verified: false
+verified: true
 ---
 
 ## Description
@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
 ## Expected Output
 ```
-The weighted average of prime numbers less than 20 is: 9.6
+The weighted average of prime numbers less than 20 is: 13.337662337662337
 ```
 
 ## Conclusion
