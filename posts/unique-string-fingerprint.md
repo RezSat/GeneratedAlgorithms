@@ -2,7 +2,7 @@
 title: Unique String Fingerprint
 subtitle: Generate a unique fingerprint for a given string.
 tags: [string, fingerprint, hashing, unique]
-verified: false
+verified: true
 ---
 
 ## Title: Unique String Fingerprint
@@ -33,9 +33,8 @@ No special instructions are needed. Just run the python code.
 
 ## Expected Output
 ```
-The fingerprint for 'example string' is: [some number]
+The fingerprint for 'example string' is: 0
 ```
 
 ## Conclusion
 This algorithm provides a simple way to generate a fingerprint for a string. The uniqueness depends on the length of the string and the distribution of characters.
-
