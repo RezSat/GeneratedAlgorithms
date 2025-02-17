@@ -2,5 +2,5 @@
 
 ---
 
-[Cellular Automata with Random Rules](posts/cellular-automata-random-rules.md) - [coe](posts/cellular-automata-random-rules.py)
+[Cellular Automata with Random Rules](posts/cellular-automata-random-rules.md) - [python code](posts/cellular-automata-random-rules.py)
 
